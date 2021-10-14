@@ -2,6 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+    path: '/calendar',
+    name: 'Calendar',
+    meta: {layout: 'Main'},
+    component: () => import('../views/Calendar.vue')
   },
   {
   }
