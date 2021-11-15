@@ -1,19 +1,26 @@
 # cabinet-app
 
 ## Project setup
-```
-npm install
-```
+Былинский Трофим 822403 / trufflesmld@gmail.com
+Cabinet-app
+Приложение для мониторинга своих расходов и задач/напоминаний.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Функциональные требования:
+•	Авторизация
+•	Возможность добавления категорий расходов и лимита по ним
+•	Мониторинг счета
+•	Просмотр истории расходов
+•	Просмотр курса валют
+•	TODO list на текущий день с возможность добавления удаления записей
+•	Возможность добавить запись на определенную дату
+•	Просмотр задач через календарь
+Предполагаемый стек:
+•	Vue.js 3
+•	HTML/CSS(SCSS)
+•	Vue CLI
+•	Vue router
+•	Vuex
+•	Vuelidate
+•	FireBase (Realtime DataBase, Storage)
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
