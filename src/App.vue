@@ -20,11 +20,11 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap");
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap');
 #app {
-font-family: 'Teko', sans-serif;
+  font-family: "Teko", sans-serif;
 }
-
 </style>
+

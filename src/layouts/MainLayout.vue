@@ -1,8 +1,10 @@
 <template>
   <div class="mainLayout">
     <Header />
-    <SideBar />
-    <main><router-view /></main>
+    <div class="layout">
+      <SideBar />
+      <main><router-view /></main>
+    </div>
   </div>
 </template>
 
@@ -20,12 +22,20 @@ export default {
 
 <style scoped>
 main {
-    position: relative;
-    box-sizing: border-box;
-    top: 8vh;
-    left: 25vw;
-    width: 75vw;
-    height: 92vh;
-    border: 1px solid blue;
+  position: relative;
+  box-sizing: border-box;
+  left: 20vw;
+  width: 60vw;
+  height: 100%;
+  border-left: 1px solid rgb(235,236,238);
+  border-right: 2px solid rgb(235,236,238);
+}
+.layout {
+  position: relative;
+  box-sizing: border-box;
+  top: 8vh;
+  width: 80vw;
+  margin: 0 10%;
+  height: 92vh;
 }
 </style>

@@ -5,9 +5,9 @@
 .sideBar {
     position: fixed;
     box-sizing: border-box;
-    top: 8vh;
     height: 92vh;
-    width: 25vw;
-    border: 1px solid black;
+    width: 20%;
+    border-right: 1px solid rgb(235,236,238);
+    border-left: 2px solid rgb(235,236,238);
 }
 </style>
