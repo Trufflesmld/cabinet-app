@@ -10,15 +10,17 @@
 .emptyLayout {
     height: 100vh;
     width: 100vw;
-    background-color: rgba(206, 206, 206, 0.527);
+    background: url('../assets/EmptyBackground.png');
+    /* background-color: rgba(206, 206, 206, 0.527); */
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .layout {
     height: 40%;
-    width: 40%;
+    width: 30%;
 }
 
 </style>
