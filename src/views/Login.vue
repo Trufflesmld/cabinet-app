@@ -4,11 +4,11 @@
       <div class="inputForm">
         <span class="label">Cabinet-app</span>
         <div class="inputContainer">
-          <input id="email" type="text" placeholder="  Email" />
+          <input id="email" type="text" placeholder="Email" />
           <!-- <small class="helperText invalid">Email</small> -->
         </div>
         <div class="inputContainer">
-          <input id="password" type="password" placeholder="  Password" />
+          <input id="password" type="password" placeholder="Password" />
           <!-- <small class="helperText invalid">Password</small> -->
         </div>
       </div>
@@ -30,10 +30,10 @@
 
 <style scoped>
 .logCard {
-  width: 100%;
-  height: 100%;
+  height: 40%;
+  width: 30%;
+  box-shadow: 5px 15px 50px 5px rgb(124, 121, 121);
   background-color: white;
-  box-shadow: 5px 15px 50px 5px black;
 }
 form {
   width: 100%;
@@ -62,6 +62,7 @@ input {
   width: 100%;
   height: 50%;
   outline: none;
+  padding: 1em;
 }
 .helperText {
   font-size: 1em;
@@ -79,12 +80,14 @@ input {
 }
 button {
   border: none;
-  width: 100%;
+  width: 70%;
+  margin: 0 15%;
   height: 80%;
   font-size: 1.5em;
   letter-spacing: 0.1em;
   font-family: "Teko", sans-serif;
-  background-color: rgb(231,226,232);
+  background-color: rgb(231, 226, 232);
+  border-radius: 2em;
 }
 button:hover {
   background-color: rgb(255, 245, 0);
@@ -92,11 +95,24 @@ button:hover {
   transition: 0.4s;
 }
 button:not(:hover) {
-  background-color: rgb(231,226,232);
+  background-color: rgb(231, 226, 232);
   cursor: pointer;
   transition: 0.4s;
 }
 p {
   font-size: 1.1em;
+}
+
+@media screen and (max-width: 1280px) {
+  .logCard {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .logCard {
+    width: 80%;
+    height: 50%;
+  }
 }
 </style>
