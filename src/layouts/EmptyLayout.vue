@@ -1,13 +1,12 @@
 <template>
   <div class="emptyLayout">
-    <div class="layout">
-      <router-view />
-    </div>
+    <router-view />
   </div>
 </template>
 
 <style scoped>
 .emptyLayout {
+<<<<<<< Updated upstream
     height: 100vh;
     width: 100vw;
     background: url('../assets/EmptyBackground.png');
@@ -24,3 +23,14 @@
 }
 
 </style>
+=======
+  height: 100vh;
+  width: 100vw;
+  background: url("../assets/EmptyBackground.png");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+</style>
+>>>>>>> Stashed changes
