@@ -8,7 +8,23 @@ const routes = [
     component: () => import('../views/Calendar.vue')
   },
   {
-  }
+    path: '/userprofile',
+    name: 'userprofile',
+    meta: {layout: 'Main'},
+    component: () => import('../views/UserProfile.vue')
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    meta: {layout: 'Empty'},
+    component: () => import('../views/Register.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    meta: {layout: 'Empty'},
+    component: () => import('../views/Login.vue')
+  },
 ]
 
 const router = createRouter({
