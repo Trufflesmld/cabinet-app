@@ -13,5 +13,6 @@
   justify-content: center;
   align-items: center;
   background-size: cover;
+  background-position: 50%;
 }
 </style>

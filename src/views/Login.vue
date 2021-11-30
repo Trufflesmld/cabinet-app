@@ -62,7 +62,7 @@ input {
   width: 100%;
   height: 50%;
   outline: none;
-  padding: 1em;
+  padding-left: 1em;
 }
 .helperText {
   font-size: 1em;
