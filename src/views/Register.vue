@@ -91,7 +91,7 @@ button {
   border: none;
   width: 70%;
   margin: 0 15%;
-  height: 65%;
+  height: 80%;
   font-size: 1.5em;
   letter-spacing: 0.1em;
   font-family: "Teko", sans-serif;
