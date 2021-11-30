@@ -105,8 +105,6 @@ button:hover {
   transition: 0.4s;
 }
 button:not(:hover) {
-  background-color: rgb(231, 226, 232);
-  cursor: pointer;
   transition: 0.4s;
 }
 p {

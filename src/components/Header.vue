@@ -39,4 +39,14 @@ a {
   justify-content: center;
   align-items: center;
 }
+a span {
+  margin: 0.5em;
+}
+a:hover {
+  background-color: rgba(116, 116, 116, 0.144);
+  transition: 0.4s;
+}
+a:not(:hover) {
+  transition: 0.4s;
+}
 </style>
