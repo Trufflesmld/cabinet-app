@@ -111,4 +111,17 @@ button:not(:hover) {
 p {
   font-size: 1.1em;
 }
+
+@media screen and (max-width: 1280px) {
+  .regCard {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .regCard {
+    width: 80%;
+    height: 70%;
+  }
+}
 </style>
