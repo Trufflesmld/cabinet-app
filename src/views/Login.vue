@@ -34,6 +34,7 @@
   width: 30%;
   box-shadow: 5px 15px 50px 5px rgb(124, 121, 121);
   background-color: white;
+  animation: fade-in 0.4s linear;
 }
 form {
   width: 100%;
@@ -113,6 +114,15 @@ p {
   .logCard {
     width: 80%;
     height: 50%;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
