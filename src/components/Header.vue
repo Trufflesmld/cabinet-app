@@ -13,8 +13,9 @@
   position: fixed;
   height: 8vh;
   width: 100vw;
-  background-color: rgb(255,245,0);
-  box-shadow: 0 0 20px rgb(235,236,238);;
+  /* background-color: rgb(255,245,0); */
+  background: url("../assets/HeaderBackGround.png");
+  box-shadow: 0 0 20px rgb(235,236,238);
   display: flex;
   justify-content: space-around;
   align-items: center;

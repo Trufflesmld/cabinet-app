@@ -21,14 +21,20 @@ export default {
 </script>
 
 <style scoped>
+.mainLayout {
+  height: 100vh;
+  width: 100vw;
+  background: url("../assets/MainBackground.png");
+}
 main {
   position: relative;
   box-sizing: border-box;
   left: 20vw;
   width: 60vw;
   height: 100%;
-  border-left: 1px solid rgb(235,236,238);
-  border-right: 2px solid rgb(235,236,238);
+  border-left: 1px solid rgb(235, 236, 238);
+  border-right: 2px solid rgb(235, 236, 238);
+  background-color: white;
 }
 .layout {
   position: relative;
