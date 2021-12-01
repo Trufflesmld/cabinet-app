@@ -12,18 +12,22 @@
   position: fixed;
   height: 8vh;
   width: 100vw;
-  /* background-color: rgb(255,245,0); */
   background: url("../assets/HeaderBackGround.png");
   box-shadow: 0 0 20px rgb(235, 236, 238);
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-h1 {
+.logo {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   position: relative;
   right: 15vw;
   letter-spacing: 2px;
-  font-size: 7vh;
+  font-size: 3em;
 }
 .profile {
   display: flex;
@@ -40,7 +44,7 @@ a {
   align-items: center;
 }
 a span {
-  margin: 0.5em;
+  margin: 0 0.5em;
 }
 a:hover {
   background-color: rgba(116, 116, 116, 0.144);
