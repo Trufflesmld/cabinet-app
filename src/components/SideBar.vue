@@ -42,7 +42,7 @@ export default {
   transition: all 0.4s;
 }
 .sideBarBtn :hover {
-  background: rgb(245, 235, 0);
+  background: rgb(255, 245, 0);
   transition: all 0.4s;
 }
 .sideBar :last-child {
@@ -58,13 +58,14 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
+  letter-spacing: 1px;
 }
 
 .router-link-active {
-  background: rgb(245, 235, 0);
+  background: rgb(255, 245, 0);
 }
 .router-link-active:hover {
-  background: rgb(245, 235, 0);
+  background: rgb(255, 245, 0);
 }
 
 </style>
