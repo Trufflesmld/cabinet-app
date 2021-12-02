@@ -14,6 +14,12 @@ const routes = [
     component: () => import('../views/UserProfile.vue')
   },
   {
+    path: '/currentTODO',
+    name: 'CurrentTODO',
+    meta: {layout: 'Main'},
+    component: () => import('../views/CurrentTODO.vue')
+  },
+  {
     path: '/register',
     name: 'Register',
     meta: {layout: 'Empty'},
@@ -24,7 +30,7 @@ const routes = [
     name: 'Login',
     meta: {layout: 'Empty'},
     component: () => import('../views/Login.vue')
-  },
+  }
 ]
 
 const router = createRouter({
