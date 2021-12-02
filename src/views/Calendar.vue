@@ -1,3 +1,3 @@
 <template>
-    <div>2222222222222222</div>
+    <div>{{this.$route.name}}</div>
 </template>
