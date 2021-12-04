@@ -114,10 +114,6 @@ export default {
   background-color: white;
   animation: fade-in 0.4s linear;
 }
-form {
-  width: 100%;
-  height: 100%;
-}
 .inputForm {
   width: 100%;
   display: flex;
@@ -200,7 +196,7 @@ p {
 @media screen and (max-width: 800px) {
   .logCard {
     width: 80%;
-    height: 50%;
+    height: 70%;
   }
 }
 
