@@ -1,32 +1,100 @@
 <template>
-  <div class="logCard">
-    <form>
-      <div class="inputForm">
-        <span class="label">Cabinet-app</span>
-        <div class="inputContainer">
-          <input id="email" type="text" placeholder="Email" />
-          <small class="helperText invalid">Email</small>
-        </div>
-        <div class="inputContainer">
-          <input id="password" type="password" placeholder="Password"/>
-          <small class="helperText invalid">Password</small>
+  <form class="logCard" @submit.prevent="submitHandler">
+    <div class="inputForm">
+      <span class="label">Cabinet-app</span>
+      <div class="inputContainer">
+        <input
+          id="email"
+          type="text"
+          placeholder="Email"
+          v-model="v$.form.email.$model"
+          :class="{ invalidInput: v$.form.email.$errors.length }"
+        />
+        <div
+          class="input-errors"
+          v-for="(error, index) of v$.form.email.$errors"
+          :key="index"
+        >
+          <div class="helperText">{{ error.$message }}</div>
         </div>
       </div>
-      <div class="submitForm">
-        <div class="submitBtn">
-          <button type="submit">
-            Log in
-          </button>
+      <div class="inputContainer">
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          v-model="v$.form.password.$model"
+          :class="{ invalidInput: v$.form.password.$errors.length }"
+        />
+        <div
+          class="input-errors"
+          v-for="(error, index) of v$.form.password.$errors"
+          :key="index"
+        >
+          <div class="helperText">{{ error.$message }}</div>
         </div>
+      </div>
+    </div>
+    <div class="submitForm">
+      <div class="submitBtn">
+        <button type="submit">
+          Log in
+        </button>
+      </div>
 
-        <p>
-          Don't have an account?
-          <router-link to="/register">Register now</router-link>
-        </p>
-      </div>
-    </form>
-  </div>
+      <p>
+        Don't have an account?
+        <router-link to="/register">Register now</router-link>
+      </p>
+    </div>
+  </form>
 </template>
+
+<script>
+import useVuelidate from "@vuelidate/core";
+import { required, email, minLength } from "@vuelidate/validators";
+export default {
+  setup() {
+    return { v$: useVuelidate() };
+  },
+  data() {
+    return {
+      form: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  validations() {
+    return {
+      form: {
+        email: {
+          required,
+          email,
+        },
+        password: {
+          required,
+          min: minLength(8),
+        },
+      },
+    };
+  },
+  methods: {
+    submitHandler() {
+      if (this.v$.form.$invalid) {
+        return;
+      }
+      const formData = {
+        email: this.form.email,
+        password: this.form.password,
+      };
+
+      console.log(formData);
+      this.$router.push("/userprofile");
+    },
+  },
+};
+</script>
 
 <style scoped>
 .logCard {
@@ -55,23 +123,28 @@ form {
   width: 100%;
   height: 35%;
 }
+
 input {
+  font-family: "Teko", sans-serif;
   box-sizing: border-box;
   border: none;
   border-top: 1px solid rgb(235, 236, 238);
   border-bottom: 1px solid rgb(235, 236, 238);
   width: 100%;
   height: 50%;
+  font-size: 1.5em;
   outline: none;
   padding-left: 1em;
 }
 
-.inputInvalid {
-  border-top: 1px solid rgb(255, 72, 0);
-  border-bottom: 1px solid rgb(255, 72, 0);
+.invalidInput {
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
 }
+
 .helperText {
-  font-size: 1em;
+  color: red;
+  font-size: 1.3em;
   padding-left: 1em;
 }
 .submitForm {
