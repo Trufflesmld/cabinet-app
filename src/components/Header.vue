@@ -56,4 +56,5 @@ a:not(:hover) {
 .router-link-active {
   background: rgba(116, 116, 116, 0.144);
 }
+
 </style>
