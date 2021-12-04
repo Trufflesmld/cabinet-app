@@ -134,10 +134,6 @@ form {
   height: 35%;
 }
 
-.invalid {
-  display: none;
-}
-
 input {
   font-family: "Teko", sans-serif;
   box-sizing: border-box;
