@@ -10,13 +10,14 @@
           v-model="v$.form.email.$model"
           :class="{ invalidInput: v$.form.email.$errors.length }"
         />
-        <div
-          class="input-errors"
-          v-for="(error, index) of v$.form.email.$errors"
-          :key="index"
+        <small
+          class="helperText"
+          v-if="v$.form.email.required.$invalid && v$.form.email.$errors.length"
+          >{{ v$.form.email.required.$message }}</small
         >
-          <div class="helperText">{{ error.$message }}</div>
-        </div>
+        <small class="helperText" v-if="v$.form.email.email.$invalid">{{
+          v$.form.email.email.$message
+        }}</small>
       </div>
       <div class="inputContainer">
         <input
@@ -26,13 +27,22 @@
           v-model="v$.form.password.$model"
           :class="{ invalidInput: v$.form.password.$errors.length }"
         />
-        <div
-          class="input-errors"
-          v-for="(error, index) of v$.form.password.$errors"
-          :key="index"
+        <small
+          class="helperText"
+          v-if="
+            v$.form.password.required.$invalid &&
+              v$.form.password.$errors.length
+          "
+          >{{ v$.form.password.required.$message }}</small
         >
-          <div class="helperText">{{ error.$message }}</div>
-        </div>
+        <small
+          class="helperText"
+          v-if="
+            v$.form.password.min.$invalid && v$.form.password.$errors.length
+          "
+          >{{ v$.form.password.min.$message }}. Now the password length is
+          {{ this.form.password.length }}</small
+        >
       </div>
     </div>
     <div class="submitForm">
@@ -122,6 +132,10 @@ form {
 .inputContainer {
   width: 100%;
   height: 35%;
+}
+
+.invalid {
+  display: none;
 }
 
 input {
