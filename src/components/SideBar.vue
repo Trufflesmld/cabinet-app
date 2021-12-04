@@ -69,5 +69,9 @@ a:not(:hover) {
 .router-link-active:hover {
   background: rgb(255, 245, 0);
 }
-
+@media screen and (max-width: 800px) {
+  a:active {
+  background: rgb(255, 245, 0);
+}
+}
 </style>
