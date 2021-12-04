@@ -1,3 +1,3 @@
 <template>
-    <div>{{this.$route}}</div>
+    <div>{{this.$route.name}}</div>
 </template>
