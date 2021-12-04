@@ -92,6 +92,7 @@ export default {
   methods: {
     submitHandler() {
       if (this.v$.form.$invalid) {
+        this.v$.form.$touch()
         return;
       }
       const formData = {
