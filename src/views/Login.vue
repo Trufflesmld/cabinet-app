@@ -5,11 +5,11 @@
         <span class="label">Cabinet-app</span>
         <div class="inputContainer">
           <input id="email" type="text" placeholder="Email" />
-          <!-- <small class="helperText invalid">Email</small> -->
+          <small class="helperText invalid">Email</small>
         </div>
         <div class="inputContainer">
-          <input id="password" type="password" placeholder="Password" />
-          <!-- <small class="helperText invalid">Password</small> -->
+          <input id="password" type="password" placeholder="Password"/>
+          <small class="helperText invalid">Password</small>
         </div>
       </div>
       <div class="submitForm">
@@ -65,8 +65,14 @@ input {
   outline: none;
   padding-left: 1em;
 }
+
+.inputInvalid {
+  border-top: 1px solid rgb(255, 72, 0);
+  border-bottom: 1px solid rgb(255, 72, 0);
+}
 .helperText {
   font-size: 1em;
+  padding-left: 1em;
 }
 .submitForm {
   width: 100%;
