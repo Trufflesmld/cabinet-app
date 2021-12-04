@@ -13,7 +13,7 @@ export default {
     return {
       arrOfNames: RouterInf.options.routes.filter((elem) => {
         if (elem.meta.layout === "Main" && elem.name !== "userprofile")
-          return elem.name;
+          return elem;
       }),
     };
   },
@@ -39,11 +39,13 @@ export default {
   height: 5%;
   box-sizing: border-box;
   border-top: 1px solid rgb(235, 236, 238);
-  transition: all 0.4s;
 }
-.sideBarBtn :hover {
+a:hover {
   background: rgb(255, 245, 0);
-  transition: all 0.4s;
+  transition: 0.4s;
+}
+a:not(:hover) {
+  transition: 0.4s;
 }
 .sideBar :last-child {
   border-bottom: 1px solid rgb(235, 236, 238);

@@ -53,4 +53,7 @@ a:hover {
 a:not(:hover) {
   transition: 0.4s;
 }
+.router-link-active {
+  background: rgba(116, 116, 116, 0.144);
+}
 </style>
