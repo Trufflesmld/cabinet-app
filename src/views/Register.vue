@@ -152,7 +152,7 @@ export default {
 
       try {
         await this.$store.dispatch("register", formData);
-        this.$router.push("/userprofile");
+        this.$router.push("/");
         notify({
           title: messages.login,
           type: "success",
