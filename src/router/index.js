@@ -2,6 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
+    path: '/',
+    name: 'Home page',
+    meta: {layout: 'Main'},
+    component: () => import('../views/Home.vue')
+  },
+  {
     path: '/calendar',
     name: 'Calendar',
     meta: {layout: 'Main'},
