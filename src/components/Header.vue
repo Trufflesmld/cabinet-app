@@ -3,10 +3,21 @@
     <h1 class="logo">Cabinet-app</h1>
     <div class="profile">
       <router-link to="/UserProfile"><span>User Profile</span></router-link>
-      <router-link to="/login"><span>SignOut</span></router-link>
+      <a href="#" @click.prevent="logout"><span>SignOut</span></a>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    async logout() {
+      await this.$store.dispatch('logout')
+      this.$router.push('/login')
+    }
+  },
+}
+</script>
 
 <style scoped>
 .header {

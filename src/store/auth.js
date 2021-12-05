@@ -1,4 +1,4 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 export default {
   actions: {
@@ -9,5 +9,9 @@ export default {
         throw e;
       }
     },
+    async logout(){
+      await signOut(getAuth())
+    }
+
   },
 };
