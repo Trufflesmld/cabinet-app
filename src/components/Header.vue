@@ -2,7 +2,7 @@
   <div class="header">
     <h1 class="logo">Cabinet-app</h1>
     <div class="profile">
-      <router-link to="/UserProfile"><span>User Profile</span></router-link>
+      <router-link to="/UserProfile"><span>{{name}}</span></router-link>
       <a href="#" @click.prevent="logout"><span>SignOut</span></a>
     </div>
   </div>
@@ -12,6 +12,11 @@
 import { notify } from "@kyvg/vue3-notification";
 import messages from '@/utils/messages.js'
 export default {
+  computed: {
+    name() {
+      return this.$store.getters.info.name
+    }
+  },
   methods: {
     async logout() {
       await this.$store.dispatch("logout");

@@ -46,8 +46,9 @@ export default {
           throw error;
         });
     },
-    async logout() {
+    async logout({commit}) {
       await signOut(getAuth());
-    },
+      commit('clearInfo')
+    }
   },
 };
