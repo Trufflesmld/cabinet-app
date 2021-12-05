@@ -3,12 +3,10 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
+import Notifications from "@kyvg/vue3-notification";
 
 import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 initializeApp({
   apiKey: "AIzaSyDTelvd1eb9J2RYhW57ScUnzkkmP_pOtnw",
@@ -26,6 +24,7 @@ const auth = getAuth();
 onAuthStateChanged(auth, () => {
   if (!application) {
     application = createApp(App)
+      .use(Notifications)
       .use(store)
       .use(router)
       .mount("#app");

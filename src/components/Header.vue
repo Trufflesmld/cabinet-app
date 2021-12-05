@@ -9,14 +9,20 @@
 </template>
 
 <script>
+import { notify } from "@kyvg/vue3-notification";
+import messages from '@/utils/messages.js'
 export default {
   methods: {
     async logout() {
-      await this.$store.dispatch('logout')
-      this.$router.push('/login')
-    }
+      await this.$store.dispatch("logout");
+      this.$router.push("/login");
+      notify({
+        title: messages.logout,
+        type: "success",
+      });
+    },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -68,5 +74,4 @@ a:not(:hover) {
 .router-link-active {
   background: rgba(116, 116, 116, 0.144);
 }
-
 </style>

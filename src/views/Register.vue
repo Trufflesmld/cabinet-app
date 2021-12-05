@@ -63,9 +63,7 @@
           "
           >{{ v$.form.confirmPassword.required.$message }}</small
         >
-        <small
-          class="helperText"
-          v-else-if="checkPassword()"
+        <small class="helperText" v-else-if="checkPassword()"
           >Password mismatch</small
         >
       </div>
@@ -104,8 +102,9 @@
 </template>
 
 <script>
-import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
+import { notify } from "@kyvg/vue3-notification";
+import messages from "@/utils/messages.js";
 
 export function validName(name) {
   let validNamePattern = new RegExp("^[a-zA-Z]+(?:[-'\\s][a-zA-Z]+)*$");
@@ -141,7 +140,7 @@ export default {
   methods: {
     async submitHandler() {
       if (this.v$.form.$invalid) {
-        this.v$.form.$touch()
+        this.v$.form.$touch();
         return;
       }
       const formData = {
@@ -150,14 +149,19 @@ export default {
         password: this.form.password,
       };
 
-      // console.log(formData);
-      await this.$store.dispatch("register", formData);
-      this.$router.push("/userprofile");
+      try {
+        await this.$store.dispatch("register", formData);
+        this.$router.push("/userprofile");
+        notify({
+          title: messages.login,
+          type: "success",
+        });
+      } catch (e) {}
     },
     checkPassword() {
-      if(this.form.password != this.form.confirmPassword) return true
-      else return false
-    }
+      if (this.form.password != this.form.confirmPassword) return true;
+      else return false;
+    },
   },
 };
 </script>
