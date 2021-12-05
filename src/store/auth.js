@@ -30,7 +30,6 @@ export default {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
           const db = getDatabase();
           set(ref(db, `/users/${user.uid}/info`), {
             bill: 10000,
@@ -42,7 +41,6 @@ export default {
             title: fbErrors[error.message],
             type: "warn",
           });
-          console.log(error.message);
           throw error;
         });
     },

@@ -23,7 +23,6 @@ export default createStore({
         const starCountRef = ref(db, `/users/${uid}/info`);
         onValue(starCountRef, (snapshot) => {
           const info = snapshot.val();
-          console.log(info);
           commit("setInfo", info);
         });0
       } catch (e) {}
