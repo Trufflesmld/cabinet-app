@@ -216,7 +216,7 @@ input {
 .submitBtn {
   width: 100%;
   height: 40%;
-  margin-top: 10%;
+  margin-top: 0;
 }
 button {
   border: none;
@@ -238,7 +238,7 @@ button:not(:hover) {
   transition: 0.4s;
 }
 p {
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 
 @media screen and (max-width: 1280px) {
