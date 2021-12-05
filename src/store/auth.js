@@ -6,25 +6,24 @@ import {
 } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 import { notify } from "@kyvg/vue3-notification";
-import fbErrors from '@/utils/messages.js'
+import fbErrors from "@/utils/messages.js";
 
 export default {
   actions: {
     async login({ dispatch, commit }, { email, password }) {
-
-        await signInWithEmailAndPassword(getAuth(), email, password).then((userCredential) => {
-          // Signed in 
+      await signInWithEmailAndPassword(getAuth(), email, password)
+        .then((userCredential) => {
+          // Signed in
           const user = userCredential.user;
           // ...
         })
         .catch((error) => {
           notify({
             title: fbErrors[error.message],
-            type: 'warn'
+            type: "warn",
           });
-          throw error
-        });;
-
+          throw error;
+        });
     },
     async register({ dispatch, commit }, { email, password, name }) {
       await createUserWithEmailAndPassword(getAuth(), email, password)
@@ -41,9 +40,10 @@ export default {
         .catch((error) => {
           notify({
             title: fbErrors[error.message],
-            type: 'warn'
+            type: "warn",
           });
-          throw error
+          console.log(error.message);
+          throw error;
         });
     },
     async logout() {
