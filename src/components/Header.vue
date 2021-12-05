@@ -3,6 +3,7 @@
     <h1 class="logo">Cabinet-app</h1>
     <div class="profile">
       <router-link to="/UserProfile"><span>User Profile</span></router-link>
+      <router-link to="/login"><span>SignOut</span></router-link>
     </div>
   </div>
 </template>
