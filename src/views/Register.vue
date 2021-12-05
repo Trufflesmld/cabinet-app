@@ -102,6 +102,7 @@
 </template>
 
 <script>
+import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
 import { notify } from "@kyvg/vue3-notification";
 import messages from "@/utils/messages.js";
