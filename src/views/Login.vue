@@ -100,9 +100,6 @@ export default {
         password: this.form.password,
       };
 
-      await this.$store.dispatch("login", formData);
-
-      // console.log(formData);
       try {
         await this.$store.dispatch("login", formData);
         this.$router.push("/userprofile");

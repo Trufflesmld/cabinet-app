@@ -7,7 +7,6 @@ import store from "./store";
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
 

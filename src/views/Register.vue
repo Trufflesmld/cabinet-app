@@ -139,7 +139,7 @@ export default {
     };
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.v$.form.$invalid) {
         this.v$.form.$touch()
         return;
@@ -150,7 +150,8 @@ export default {
         password: this.form.password,
       };
 
-      console.log(formData);
+      // console.log(formData);
+      await this.$store.dispatch("register", formData);
       this.$router.push("/userprofile");
     },
     checkPassword() {

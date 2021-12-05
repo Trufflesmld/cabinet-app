@@ -1,4 +1,10 @@
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 
 export default {
   actions: {
@@ -9,9 +15,26 @@ export default {
         throw e;
       }
     },
-    async logout(){
-      await signOut(getAuth())
-    }
-
+    async register({ dispatch, commit }, { email, password, name }) {
+      await createUserWithEmailAndPassword(getAuth(), email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          const db = getDatabase();
+          set(ref(db, `/users/${user.uid}/info`), {
+            bill: 10000,
+            name,
+          });
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          // ..
+        });
+    },
+    async logout() {
+      await signOut(getAuth());
+    },
   },
 };
