@@ -90,9 +90,9 @@ export default {
     };
   },
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.v$.form.$invalid) {
-        this.v$.form.$touch()
+        this.v$.form.$touch();
         return;
       }
       const formData = {
@@ -100,8 +100,13 @@ export default {
         password: this.form.password,
       };
 
-      console.log(formData);
-      this.$router.push("/userprofile");
+      await this.$store.dispatch("login", formData);
+
+      // console.log(formData);
+      try {
+        await this.$store.dispatch("login", formData);
+        this.$router.push("/userprofile");
+      } catch (e) {}
     },
   },
 };
