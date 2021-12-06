@@ -2,19 +2,34 @@
   <div class="container">
     <p class="title">Current bill</p>
     <p class="bill">
-      <span>10000 BYN</span> 
+      <span>{{ this.$store.getters.info.bill }} BYN</span>
     </p>
-    <p class="bill">
-      <span>10000 BYN</span> 
-    </p>
-    <p class="bill">
-      <span>10000 BYN</span> 
-    </p>
-    <p class="bill">
-      <span>10000 BYN</span> 
+    <p class="bill" v-for="cur in currencies" :key="cur.Cur_ID">
+      <span
+        >{{ getCurrency(cur.Cur_OfficialRate, cur.Cur_Abbreviation) }}
+        {{ cur.Cur_Abbreviation }}</span
+      >
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["currencies"],
+  computed: {
+    bill() {
+      return this.$store.getters.info.bill;
+    },
+  },
+  methods: {
+    getCurrency(rate, name) {
+      return name == "RUB"
+        ? ((this.bill * 100) / rate).toFixed(2)
+        : (this.bill / rate).toFixed(2);
+    },
+  },
+};
+</script>
 
 <style scoped>
 .container {

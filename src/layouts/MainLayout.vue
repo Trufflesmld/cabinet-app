@@ -1,5 +1,11 @@
 <template>
-  <div class="mainLayout">
+  <loading
+    v-model:active="wait"
+    :can-cancel="false"
+    :is-full-page="true"
+    :color="'#000000'"
+  />
+  <div class="mainLayout" v-if="!wait">
     <Header />
     <div class="layout">
       <SideBar />
@@ -11,16 +17,24 @@
 <script>
 import Header from "@/components/Header.vue";
 import SideBar from "@/components/SideBar.vue";
-
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 export default {
+  data: () => ({
+    wait: true,
+  }),
   components: {
     Header,
     SideBar,
+    Loading,
   },
   async mounted() {
     if (!Object.keys(this.$store.getters.info).length) {
       await this.$store.dispatch("fetchInfo");
     }
+    setTimeout(() => {
+      this.wait = false;
+    }, 2000);
   },
 };
 </script>

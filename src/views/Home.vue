@@ -7,8 +7,8 @@
       :color="'#fff500'"
     />
     <template v-if="!loading">
-      <HomeBill />
-      <HomeCurrency :currencies="this.currency" />
+      <HomeBill :currencies="currency" />
+      <HomeCurrency :currencies="currency" />
     </template>
   </div>
 </template>
@@ -30,14 +30,7 @@ export default {
   }),
   async mounted() {
     this.currency = await this.$store.dispatch("fetchCurrency");
-    this.loading = false
-  },
-  methods: {
-    async refresh() {
-      this.loading = true;
-      this.currency = await this.$store.dispatch("fetchCurrency");
-      this.loading = false;
-    },
+    this.loading = false;
   },
 };
 </script>
