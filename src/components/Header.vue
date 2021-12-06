@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import { notify } from "@kyvg/vue3-notification";
-import messages from '@/utils/messages.js'
 export default {
   computed: {
     name() {
@@ -21,10 +19,6 @@ export default {
     async logout() {
       await this.$store.dispatch("logout");
       this.$router.push("/login");
-      notify({
-        title: messages.logout,
-        type: "success",
-      });
     },
   },
 };

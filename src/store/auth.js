@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 import { notify } from "@kyvg/vue3-notification";
-import fbErrors from "@/utils/messages.js";
+import messages from "@/utils/messages.js";
 
 export default {
   actions: {
@@ -15,11 +15,14 @@ export default {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          // ...
+          notify({
+            title: messages.login,
+            type: "success",
+          });
         })
         .catch((error) => {
           notify({
-            title: fbErrors[error.message],
+            title: messages[error.message],
             type: "warn",
           });
           throw error;
@@ -35,18 +38,26 @@ export default {
             bill: 10000,
             name,
           });
+          notify({
+            title: messages.login,
+            type: "success",
+          });
         })
         .catch((error) => {
           notify({
-            title: fbErrors[error.message],
+            title: messages[error.message],
             type: "warn",
           });
           throw error;
         });
     },
-    async logout({commit}) {
+    async logout({ commit }) {
       await signOut(getAuth());
-      commit('clearInfo')
-    }
+      commit("clearInfo");
+      notify({
+        title: messages.logout,
+        type: "success",
+      });
+    },
   },
 };

@@ -63,8 +63,6 @@
 <script>
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength } from "@vuelidate/validators";
-import { notify } from "@kyvg/vue3-notification";
-import messages from '@/utils/messages.js'
 export default {
   setup() {
     return { v$: useVuelidate() };
@@ -106,10 +104,6 @@ export default {
       try {
         await this.$store.dispatch("login", formData);
         this.$router.push("/");
-        notify({
-            title: messages.login,
-            type: 'success'
-          });
       } catch (e) {}
     },
   },

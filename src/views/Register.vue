@@ -104,8 +104,7 @@
 <script>
 import useVuelidate from "@vuelidate/core";
 import { required, email, minLength, sameAs } from "@vuelidate/validators";
-import { notify } from "@kyvg/vue3-notification";
-import messages from "@/utils/messages.js";
+
 
 export function validName(name) {
   let validNamePattern = new RegExp("^[a-zA-Z]+(?:[-'\\s][a-zA-Z]+)*$");
@@ -153,10 +152,6 @@ export default {
       try {
         await this.$store.dispatch("register", formData);
         this.$router.push("/");
-        notify({
-          title: messages.login,
-          type: "success",
-        });
       } catch (e) {}
     },
     checkPassword() {
