@@ -27,6 +27,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  padding: 0 1em;
 }
 .title {
   box-sizing: border-box;

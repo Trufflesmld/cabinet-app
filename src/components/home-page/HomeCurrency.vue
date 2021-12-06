@@ -47,6 +47,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
+  padding: 0 1em;
 }
 .title {
   box-sizing: border-box;
@@ -79,8 +80,5 @@ tr {
   font-size: 1.5em;
   margin-top: 1vh;
   margin-bottom: 1vh;
-}
-td {
-    padding-left: 0.5em;
 }
 </style>
