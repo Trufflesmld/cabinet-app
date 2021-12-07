@@ -25,7 +25,6 @@ export default createStore({
           const info = snapshot.val();
           commit("setInfo", info);
         });
-        0;
       } catch (e) {}
     },
     getUid() {
