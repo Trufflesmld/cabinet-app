@@ -32,9 +32,10 @@ export default {
     if (!Object.keys(this.$store.getters.info).length) {
       await this.$store.dispatch("fetchInfo");
     }
-    setTimeout(() => {
-      this.wait = false;
-    }, 2000);
+    this.wait = false;
+    // setTimeout(() => {
+    //   this.wait = false;
+    // }, 2000);
   },
 };
 </script>

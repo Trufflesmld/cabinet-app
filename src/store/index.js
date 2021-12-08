@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, onValue } from "firebase/database";
+// import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, child, get } from "firebase/database";
 import auth from "./auth";
 
 export default createStore({
@@ -16,16 +17,32 @@ export default createStore({
     },
   },
   actions: {
+    // async fetchInfo({ dispatch, commit }) {
+    //   try {
+    //     const uid = await dispatch("getUid");
+    //     const db = getDatabase();
+    //     const starCountRef = ref(db, `/users/${uid}/info`);
+    //     onValue( starCountRef, async function(snapshot) {
+    //       const info = await snapshot.val();
+    //       commit("setInfo", info);
+    //     });
+    //   } catch (e) {}
+    // },
     async fetchInfo({ dispatch, commit }) {
-      try {
-        const uid = await dispatch("getUid");
-        const db = getDatabase();
-        const starCountRef = ref(db, `/users/${uid}/info`);
-        onValue(starCountRef, (snapshot) => {
-          const info = snapshot.val();
-          commit("setInfo", info);
+      const dbRef = ref(getDatabase());
+      const uid = await dispatch("getUid");
+      await get(child(dbRef, `users/${uid}/info`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const info = snapshot.val();
+            commit("setInfo", info);
+          } else {
+            console.log("No data available");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
         });
-      } catch (e) {}
     },
     getUid() {
       const user = getAuth().currentUser;
