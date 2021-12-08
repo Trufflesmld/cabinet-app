@@ -8,6 +8,12 @@ const routes = [
     component: () => import('../views/Home.vue')
   },
   {
+    path: '/categories',
+    name: 'Categories',
+    meta: {layout: 'Main'},
+    component: () => import('../views/Categories.vue')
+  },
+  {
     path: '/calendar',
     name: 'Calendar',
     meta: {layout: 'Main'},
