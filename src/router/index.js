@@ -14,22 +14,28 @@ const routes = [
     component: () => import('../views/Categories.vue')
   },
   {
-    path: '/calendar',
-    name: 'Calendar',
+    path: '/record',
+    name: 'Record',
     meta: {layout: 'Main'},
-    component: () => import('../views/Calendar.vue')
+    component: () => import('../views/Record.vue')
+  },
+  {
+    path: '/planning',
+    name: 'Planning',
+    meta: {layout: 'Main'},
+    component: () => import('../views/Planning.vue')
+  },
+  {
+    path: '/history',
+    name: 'History',
+    meta: {layout: 'Main'},
+    component: () => import('../views/History.vue')
   },
   {
     path: '/userprofile',
     name: 'userprofile',
     meta: {layout: 'Main'},
     component: () => import('../views/UserProfile.vue')
-  },
-  {
-    path: '/currentTODO',
-    name: 'CurrentTODO',
-    meta: {layout: 'Main'},
-    component: () => import('../views/CurrentTODO.vue')
   },
   {
     path: '/register',
