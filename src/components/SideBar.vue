@@ -41,7 +41,7 @@ export default {
   border-top: 1px solid rgb(235, 236, 238);
 }
 a:hover {
-  background: rgb(255, 245, 0);
+  background: rgb(228, 228, 226);
   transition: 0.4s;
 }
 a:not(:hover) {
