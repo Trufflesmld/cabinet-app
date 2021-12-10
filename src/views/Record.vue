@@ -26,12 +26,12 @@
 
       <div class="inputContainer">
         <input id="amount" type="number" placeholder="Amount" />
-        <!-- <span class="helper-text invalid">amount пароль</span> -->
+        <!-- <span class="helper-text invalid">validation err</span> -->
       </div>
 
       <div class="inputContainer">
         <input id="description" type="text" placeholder="Description" />
-        <!-- <span class="helper-text invalid">description пароль</span> -->
+        <!-- <span class="helper-text invalid">validation err</span> -->
       </div>
 
       <div class="submitBtn">
@@ -46,7 +46,7 @@
 <style scoped>
 .wrapper {
   box-sizing: border-box;
-  width: 50%;
+  width: 60%;
   margin: 0;
   padding-top: 5vw;
   padding-left: 2vw;
@@ -110,6 +110,11 @@ input {
   height: 30%;
   width: 20%;
 }
+.submitBtn {
+  width: 100%;
+  height: 50%;
+  margin-top: 2vh;
+}
 button {
   border: none;
   width: 100%;
@@ -128,6 +133,18 @@ button:hover {
 button:not(:hover) {
   transition: 0.4s;
 }
+@media screen and (max-width: 1600px) {
+  .wrapper {
+     width: 80%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+
+
 @keyframes fade-in {
   0% {
     opacity: 0.5;
