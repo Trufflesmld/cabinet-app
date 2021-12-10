@@ -32,6 +32,18 @@ const routes = [
     component: () => import('../views/History.vue')
   },
   {
+    path: '/calendar',
+    name: 'Calendar',
+    meta: {layout: 'Main'},
+    component: () => import('../views/Calendar.vue')
+  },
+  {
+    path: '/todayToDoList',
+    name: 'Today To Do List',
+    meta: {layout: 'Main'},
+    component: () => import('../views/CurrentTODO.vue')
+  },
+  {
     path: '/userprofile',
     name: 'userprofile',
     meta: {layout: 'Main'},
