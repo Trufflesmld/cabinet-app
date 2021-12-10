@@ -1,6 +1,5 @@
 <template>
   <div class="createForm">
-    <div>
       <div class="label">
         <span>Create category</span>
       </div>
@@ -52,7 +51,6 @@
           </button>
         </div>
       </form>
-    </div>
   </div>
 </template>
 
