@@ -3,6 +3,7 @@ import { getAuth } from "firebase/auth";
 // import { getDatabase, ref, onValue } from "firebase/database";
 import { getDatabase, ref, child, get } from "firebase/database";
 import auth from "./auth";
+import category from "./category";
 
 export default createStore({
   state: {
@@ -64,5 +65,6 @@ export default createStore({
   },
   modules: {
     auth,
+    category,
   },
 });
