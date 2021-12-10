@@ -1,28 +1,43 @@
 <template>
-  <div class="wrapper">
+  <loading
+    v-model:active="loading"
+    :can-cancel="false"
+    :is-full-page="false"
+    :color="'#fff500'"
+  />
+  <div class="wrapper" v-if="!loading">
     <CategoryCreate @created="addNewCategory" />
-    <CategoryEdit/>
+    <CategoryEdit />
   </div>
 </template>
 
 <script>
 import CategoryCreate from "@/components/categories-page/CategoryCreate";
 import CategoryEdit from "@/components/categories-page/CategoryEdit";
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 
 export default {
   data: () => ({
-    categories: []
+    loading: true,
+    categories: [],
   }),
   components: {
-    CategoryCreate, CategoryEdit
+    CategoryCreate,
+    CategoryEdit,
+    Loading,
+  },
+  async mounted() {
+    this.categories = await this.$store.dispatch("fetchCategories");
+    this.loading = false;
   },
   methods: {
     addNewCategory(category) {
-      this.categories.push(category)
-      console.log(this.categories)
-    }
-  }
-}
+      this.categories.push(category);
+      console.log(this.categories);
+    },
+  },
+};
 </script>
 
 <style scoped>
