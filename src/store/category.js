@@ -16,6 +16,23 @@ export default {
         throw e;
       }
     },
+    async updateCategory({commit, dispatch}, {title, limit, id}) {
+      try {
+        const uid = await dispatch('getUid')
+        const db = getDatabase();
+        await set(ref(db, `/users/${uid}/categories/${id}`), {
+          title,
+          limit,
+        });
+        notify({
+          title: `Category edit`,
+          type: "success",
+        });
+      } catch (e) {
+        console.log(e)
+        throw e
+      }
+    },
     async createCategory({ commit, dispatch }, { title, limit }) {
       try {
         const db = getDatabase();

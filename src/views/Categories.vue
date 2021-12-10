@@ -7,7 +7,13 @@
   />
   <div class="wrapper" v-if="!loading">
     <CategoryCreate @created="addNewCategory" />
-    <CategoryEdit />
+    <CategoryEdit
+      v-if="categories.length"
+      :categories="categories"
+      :key="categories.length + updateCount"
+      @updated="updateCategories"
+    />
+    <p v-else class="emptyCategories">Create a category to edit them</p>
   </div>
 </template>
 
@@ -21,6 +27,7 @@ export default {
   data: () => ({
     loading: true,
     categories: [],
+    updateCount: 0,
   }),
   components: {
     CategoryCreate,
@@ -36,6 +43,12 @@ export default {
       this.categories.push(category);
       console.log(this.categories);
     },
+    updateCategories(category) {
+      const idx = this.categories.findIndex((c) => c.id === category.id);
+      this.categories[idx].title = category.title;
+      this.categories[idx].limit = category.limit;
+      this.updateCount++;
+    },
   },
 };
 </script>
@@ -50,6 +63,11 @@ export default {
   padding-right: 2vw;
   display: flex;
   flex-direction: row;
+}
+.emptyCategories {
+  width: 100%;
+  font-size: 3em;
+  margin: 0;
 }
 @media screen and (max-width: 1280px) {
   .wrapper {
