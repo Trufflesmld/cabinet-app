@@ -53,6 +53,7 @@
   padding-right: 2vw;
   display: flex;
   flex-direction: column;
+  animation: fade-in 0.4s linear;
 }
 .label {
   height: 30%;
@@ -126,5 +127,13 @@ button:hover {
 }
 button:not(:hover) {
   transition: 0.4s;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>
